@@ -1,0 +1,89 @@
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">
+						Admin Area <small>Account Login</small>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+	  <form (ngSubmit)="processForm()">
+	    <div class="form group">
+	      <label for="produtoNome">Produto</label>
+	      <input type="text" name="nome" class="form-control" [(ngModel)]="produto.produtoNome">
+	    </div>
+	    <div class="form group">
+	      <label for="preco">Preço unidade</label>
+	      <input type="text" name="preco" class="form-control" [(ngModel)]="produto.preco">
+	    </div>
+			<div class="form group">
+	      <label for="quantidadeEstoque">Quantidade de unidades em estoque</label>
+	      <input type="text" name="quantidadeEstoque" class="form-control" [(ngModel)]="produto.quantidadeEstoque">
+	    </div>
+			<div class="form group">
+	      <label for="categoria">Categoria</label>
+	      <input type="text" name="categoria" class="form-control" [(ngModel)]="produto.categoria">
+	    </div>
+			<div class="form group">
+	      <label for="loteProduto">Lote do produto</label>
+	      <input type="text" name="loteProduto" class="form-control" [(ngModel)]="produto.loteProduto">
+	    </div>
+			<div class="form group">
+	      <label for="codigoBarras">Código de barras</label>
+	      <input type="text" name="codigoBarras" class="form-control" [(ngModel)]="produto.codigoBarras">
+	    </div>
+	    <input type="submit" value="save" class="btn btn-success">
+	  </form>
+	</div>
+	<!--
+	<section id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<form class="well" #frm="ngForm" (ngSubmit)="adicionar(frm)" autocomplete="off">
+						<div class="form-group">
+							<input class="form-control"
+								type="text" name="produtoNome"
+								ngModel placeholder="Produto" />
+						</div>
+						<div class="form-group">
+							<input class="form-control"
+								type="text" name="preco"
+								ngModel placeholder="Preço unidade" />
+						</div>
+						<div class="form-group">
+						<input class="form-control"
+								type="text" name="quantidadeEstoque"
+								ngModel placeholder="Quantidade unidades em estoque" />
+						</div>
+						<div class="form-group">
+						<input class="form-control"
+								type="text" name="categoria"
+								ngModel placeholder="Categoria" />
+						</div>
+						<div class="form-group">
+						 <input class="form-control"
+								type="text" name="loteProduto"
+								ngModel placeholder="Lote do produto" />
+						</div>
+						<div class="form-group">
+						<input class="form-control"
+								type="text" name="codigoBarras"
+								ngModel placeholder="Código de barras" />
+						</div>
+
+ 		<input th:field="*{dataValidade}" type="text" placeholder="Data de validade"/>
+		<input th:field="*{}" type="text" placeholder=""/>
+		<input th:field="*{}" type="text" placeholder=""/>
+
+						<button type="submit">Cadastrar produto</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+-->

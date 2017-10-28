@@ -1,0 +1,50 @@
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">
+						Admin Area <small>Account Login</small>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<form id="login" class="well" method="POST"
+						th:action="@{/comercio/cadastro}" th:object="${comercio}">
+						<div class="form-group">
+							<label>Nome do comércio</label> <input type="text"
+								class="form-control" placeholder="Nome do comércio"
+								th:field="*{nomeComercio}" />
+						</div>
+						<div class="form-group">
+							<label>Email</label> <input type="text" class="form-control"
+								placeholder="Email" th:field="*{emailComercio}" />
+						</div>
+						<div class="form-group">
+							<label>Senha</label> <input type="password" class="form-control"
+								placeholder="Senha" th:field="*{senhaComercio}" />
+						</div>
+						<div class="form-group">
+							<label>Confirma senha</label> <input type="password"
+								class="form-control" placeholder="Confirma senha"
+								th:field="*{confirmaSenhaComercio}" />
+						</div>
+						<div class="form-group">
+							<label>CNPJ</label> <input type="text" class="form-control"
+								placeholder="CNPJ" th:field="*{cnpj}" />
+						</div>
+						<button type="submit" class="btn btn-default btn-block">Criar
+							sua conta mercado.com</button>
+						<p>
+							Já possui conta?<a th:href="@{/comercio}">Entrar</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>

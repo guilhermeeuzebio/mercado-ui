@@ -1,0 +1,29 @@
+						<div class="container">
+							<table class="table table-striped">
+								<thead>
+									<th>Produto</th>
+									<th>Preço unidade</th>
+									<th>Quantidade em estoque</th>
+									<th>Categoria</th>
+									<th>Lote do produto</th>
+									<th>Código de barras</th>
+									<!--<th>Ver</th>-->
+									<th>Editar</th>
+									<th>Excluir</th>
+								</thead>
+								<tbody>
+									<tr *ngFor="let produto of produtos">
+										<td>{{produto.produtoNome}}</td>
+										<td>{{produto.preco}}</td>
+										<td>{{produto.quantidadeEstoque}}</td>
+										<td>{{produto.categoria}}</td>
+										<td>{{produto.loteProduto}}</td>
+										<td>{{produto.codigoBarras}}</td>
+										<!--<td><button>Mostrar</button></td>-->
+										<td><button class="btn btn-primary" (click)="editarProduto(produto)">Editar</button></td>
+										<td><button class="btn btn-danger" (click)="excluirProduto(produto)">Excluir</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<button class="btn btn-primary" (click)="novoProduto()">Novo produto</button>
+						</div>
