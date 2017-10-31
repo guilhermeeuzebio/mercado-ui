@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+
+import { Comercio } from './comercio'
 import { ComercioService } from './comercio.service';
 
 @Component({
@@ -9,7 +12,14 @@ import { ComercioService } from './comercio.service';
 })
 export class ComercioComponent implements OnInit {
 
-  constructor(){ }
+  constructor(private _comercioService:ComercioService, private _router:Router){ }
 
   ngOnInit() {}
+
+  novoComercio(){
+    let comercio = new Comercio();
+    this._comercioService.setterComercio(comercio);
+    this._router.navigate(['/cadastro-comercio']);
+  }
+
 }

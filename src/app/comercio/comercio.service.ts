@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { Produto } from './produto';
+import { Comercio } from './comercio';
 
 @Injectable()
 export class ComercioService {
@@ -15,6 +16,7 @@ export class ComercioService {
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});
   private produto:Produto;
+  private comercio:Comercio;
 
   constructor(private _http:Http) { }
 
@@ -38,6 +40,12 @@ export class ComercioService {
     return this._http.put(this.baseUrl+'/produto',JSON.stringify(produto), this.options).map((response:Response)=>response.json())
       .catch(this.errorHandler);
   }
+
+  criarContaComercio(comercio:Comercio){
+    return this._http.post(this.baseUrl+'/comercio',JSON.stringify(comercio), this.options).map((response:Response)=>response.json())
+      .catch(this.errorHandler);
+  }
+
   errorHandler(error:Response){
     return Observable.throw(error||"SERVER ERROR");
   }
@@ -48,6 +56,14 @@ export class ComercioService {
 
   getter(){
     return this.produto;
+  }
+
+  setterComercio(comercio:Comercio){
+    this.comercio=comercio;
+  }
+
+  getterComercio(){
+    return this.comercio;
   }
 
 }

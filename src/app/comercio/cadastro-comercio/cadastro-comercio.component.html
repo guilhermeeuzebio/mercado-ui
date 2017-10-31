@@ -1,0 +1,50 @@
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">
+						Admin Area <small>Account Login</small>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<form (ngSubmit)="processFormComercio()">
+						<div class="form-group">
+							<label for="nomeComercio">Nome do comércio</label> <input type="text"
+								class="form-control" placeholder="Nome do comércio" name="nomeComercio"
+								[(ngModel)]="comercio.nomeComercio" />
+						</div>
+						<div class="form-group">
+							<label for="cnpj">CNPJ</label> <input type="text" class="form-control"
+								placeholder="CNPJ" name="cnpj" [(ngModel)]="comercio.cnpj" />
+						</div>
+						<div class="form-group">
+							<label for="emailComercio">Email</label> <input type="text" class="form-control"
+								placeholder="Email" name="emailComercio" [(ngModel)]="comercio.emailComercio" />
+						</div>
+						<div class="form-group">
+							<label for="senhaComercio">Senha</label> <input type="password" class="form-control"
+								placeholder="Senha" name="senhaComercio" [(ngModel)]="comercio.senhaComercio" />
+						</div>
+						<div class="form-group">
+							<label for="confirmaSenhaComercio">Confirma senha</label> <input type="password"
+								class="form-control" placeholder="Confirma senha" name="confirmaSenhaComercio"
+								[(ngModel)]="comercio.confirmaSenhaComercio" />
+						</div>
+						<!--<input type="submit" value="save" class="btn btn-success">-->
+						<button type="submit" class="btn btn-default btn-block">Criar
+							sua conta mercado.com</button>
+						<p>
+							Já possui conta?<a th:href="@{/comercio}">Entrar</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
