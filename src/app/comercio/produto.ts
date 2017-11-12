@@ -6,4 +6,5 @@ export class Produto {
   categoria:string;
   loteProduto:Number;
   codigoBarras:Number;
+  imagem:string;
 }

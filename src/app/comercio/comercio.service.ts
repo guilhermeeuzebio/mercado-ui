@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {HttpClient, HttpRequest, HttpEvent} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -18,7 +19,7 @@ export class ComercioService {
   private produto:Produto;
   private comercio:Comercio;
 
-  constructor(private _http:Http) { }
+  constructor(private _http:Http, private http: HttpClient) { }
 
   getProdutos(){
     return this._http.get(this.baseUrl+'/produtos',this.options).map((response:Response)=>response.json())
@@ -41,6 +42,23 @@ export class ComercioService {
       .catch(this.errorHandler);
   }
 
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+  let formdata: FormData = new FormData();
+
+  formdata.append('file', file);
+
+  const req = new HttpRequest('POST', this.baseUrl+'/produto/imagem', formdata, {
+    reportProgress: true,
+    responseType: 'text'
+  });
+
+    return this.http.request(req);
+  }
+
+  getFiles(): Observable<string[]> {
+    return this.http.get(this.baseUrl+'/getallfiles')
+  }
+
   criarContaComercio(comercio:Comercio){
     return this._http.post(this.baseUrl+'/comercio',JSON.stringify(comercio), this.options).map((response:Response)=>response.json())
       .catch(this.errorHandler);
@@ -53,7 +71,6 @@ export class ComercioService {
   setter(produto:Produto){
     this.produto=produto;
   }
-
   getter(){
     return this.produto;
   }
@@ -61,7 +78,6 @@ export class ComercioService {
   setterComercio(comercio:Comercio){
     this.comercio=comercio;
   }
-
   getterComercio(){
     return this.comercio;
   }

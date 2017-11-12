@@ -36,54 +36,15 @@
 	      <label for="codigoBarras">Código de barras</label>
 	      <input type="text" name="codigoBarras" class="form-control" [(ngModel)]="produto.codigoBarras">
 	    </div>
-	    <input type="submit" value="save" class="btn btn-success">
+			<div>
+				<label for="imagem" class="btn btn-default">
+					<input type="file" name="imagem" (change)="selectFile($event)">
+				</label>
+			</div>
+			<input type="submit" value="save" class="btn btn-success">
+			<!--
+	    <input type="submit" [disabled]="!selectedFiles"
+				(click)="upload()" value="save" class="btn btn-success">
+			-->
 	  </form>
 	</div>
-	<!--
-	<section id="main">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-4">
-					<form class="well" #frm="ngForm" (ngSubmit)="adicionar(frm)" autocomplete="off">
-						<div class="form-group">
-							<input class="form-control"
-								type="text" name="produtoNome"
-								ngModel placeholder="Produto" />
-						</div>
-						<div class="form-group">
-							<input class="form-control"
-								type="text" name="preco"
-								ngModel placeholder="Preço unidade" />
-						</div>
-						<div class="form-group">
-						<input class="form-control"
-								type="text" name="quantidadeEstoque"
-								ngModel placeholder="Quantidade unidades em estoque" />
-						</div>
-						<div class="form-group">
-						<input class="form-control"
-								type="text" name="categoria"
-								ngModel placeholder="Categoria" />
-						</div>
-						<div class="form-group">
-						 <input class="form-control"
-								type="text" name="loteProduto"
-								ngModel placeholder="Lote do produto" />
-						</div>
-						<div class="form-group">
-						<input class="form-control"
-								type="text" name="codigoBarras"
-								ngModel placeholder="Código de barras" />
-						</div>
-
- 		<input th:field="*{dataValidade}" type="text" placeholder="Data de validade"/>
-		<input th:field="*{}" type="text" placeholder=""/>
-		<input th:field="*{}" type="text" placeholder=""/>
-
-						<button type="submit">Cadastrar produto</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
--->
