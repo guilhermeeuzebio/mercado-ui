@@ -1,4 +1,4 @@
-Para rodar o projeto é necessário ter instalado Node.JS, npm e angular.
+Para rodar o projeto é necessário ter instalado Node.JS, npm, angular e angular2-jwt.
 
 Para executar  o projeto deve-se executar ng serve, estando dentro da pasta mercado-ui.
 
