@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Comercio } from './comercio'
 import { ComercioService } from './comercio.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'mercado-comercio',
@@ -12,9 +13,17 @@ import { ComercioService } from './comercio.service';
 })
 export class ComercioComponent implements OnInit {
 
-  constructor(private _comercioService:ComercioService, private _router:Router){ }
+  constructor(private _comercioService:ComercioService, private auth:AuthService, private _router:Router, private comercio:Comercio){ }
 
   ngOnInit() {}
+
+  login() {
+    this.auth.login(this.comercio.email, this.comercio.senha)
+    .then(
+      result => {
+        this._router.navigate(['/listar-produtos']);
+      })
+  }
 
   novoComercio(){
     let comercio = new Comercio();

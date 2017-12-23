@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Comercio } from './../comercio/comercio'
+import { ComercioService } from './../comercio/comercio.service';
 
 @Component({
   selector: 'mercado-header',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _comercioService:ComercioService, private _router:Router) { }
 
   ngOnInit() {
+  }
+
+  comercio(){
+    let comercio = new Comercio();
+    this._comercioService.setterComercio(comercio);
+    this._router.navigate(['/comercio']);
   }
 
 }

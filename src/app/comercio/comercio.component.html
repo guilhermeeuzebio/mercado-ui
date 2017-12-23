@@ -17,13 +17,13 @@
 				<form id="login" action="index.html" class="well">
 					<div class="form-group">
 						<label>Email</label> <input type="text"
-							class="form-control" placeholder="Email"/>
+							class="form-control" name="email" [(ngModel)]="comercio.email" placeholder="Email"/>
 					</div>
 					<div class="form-group">
 						<label>Senha</label> <input type="password"
-							class="form-control" placeholder="Senha"/>
+							class="form-control" name="senha" [(ngModel)]="comercio.senha" placeholder="Senha"/>
 					</div>
-					<button type="submit" class="btn btn-default btn-block">Entrar</button>
+					<button type="submit" class="btn btn-default btn-block" (click)="login()">Entrar</button>
 					<button class="btn btn-primary" (click)="novoComercio()">Criar sua conta mercado.com</button>
 					<!--<a class="btn btn-primary btn-lg active" role="button" routerLink="/cadastrar-comercio">Criar sua conta mercado.com</a>-->
 				</form>
